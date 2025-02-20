@@ -3,12 +3,12 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 
 SOURCES = megaphone.cpp
 
-OBJS = $(SOURCES:.c=.o)
+OBJS = $(SOURCES:.cpp=.o)
 
 $(NAME): $(OBJS)
 	c++ $(FLAGS) -o $(NAME) $(OBJS)
 
-%.o: %.c
+%.o: %.cpp
 	c++ $(FLAGS) -c $< -o $@
 
 all: $(NAME)
