@@ -1,4 +1,4 @@
-NAME = replacer
+NAME = replace
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 SOURCES = main.cpp \

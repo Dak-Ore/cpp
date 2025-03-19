@@ -6,7 +6,7 @@
 /*   By: rsebasti <rsebasti@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 09:30:37 by rsebasti          #+#    #+#             */
-/*   Updated: 2025/03/10 14:16:59 by rsebasti         ###   ########.fr       */
+/*   Updated: 2025/03/19 10:54:29 by rsebasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ void	fileReader::read(std::string s1, std::string s2)
 {
 	std::ifstream fileRead(fileName.c_str(), std::ios::in);
 	std::string	line;
-	fileWritter	newFile(fileName);
 
 	if (fileRead)
 	{
+	fileWritter	newFile(fileName);
 		while (fileRead.good())
 		{
 			std::getline(fileRead, line);

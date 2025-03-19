@@ -55,7 +55,8 @@
 		"format": "cpp",
 		"span": "cpp",
 		"variant": "cpp",
-		"fstream": "cpp"
+		"fstream": "cpp",
+		"map": "cpp"
 	},
 	"C_Cpp.errorSquiggles": "enabled",
 }

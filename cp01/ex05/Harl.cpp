@@ -6,7 +6,7 @@
 /*   By: rsebasti <rsebasti@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 11:39:02 by rsebasti          #+#    #+#             */
-/*   Updated: 2025/03/18 13:34:35 by rsebasti         ###   ########.fr       */
+/*   Updated: 2025/03/19 13:30:44 by rsebasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,5 @@ void Harl::complain( std::string level )
 		}
 		i++;
 	}
-	std::cout << "Unknow level :" << level << std::endl;
+	std::cout << "Unknow level : " << level << std::endl;
 }
