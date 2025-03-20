@@ -6,7 +6,7 @@
 /*   By: rsebasti <rsebasti@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 13:58:15 by rsebasti          #+#    #+#             */
-/*   Updated: 2025/03/20 15:27:20 by rsebasti         ###   ########.fr       */
+/*   Updated: 2025/03/20 21:50:27 by rsebasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,28 +73,28 @@ float Fixed::toFloat(void) const
 Fixed Fixed::operator+(const Fixed &other)
 {
 	Fixed result;
-	result.setRawBits ((this->value + other.getRawBits()) >> fract);
+	result.setRawBits (this->value + other.getRawBits());
 	return result;
 }
 
 Fixed Fixed::operator-(const Fixed &other)
 {
 	Fixed result;
-	result.setRawBits ((this->value - other.getRawBits()) >> fract);
+	result.setRawBits (this->value - other.getRawBits());
 	return result;
 }
 
 Fixed Fixed::operator/(const Fixed &other)
 {
 	Fixed result;
-	result.setRawBits ((this->value / other.getRawBits()) >> fract);
+	result.setRawBits((this->value * (1 << fract)) / other.getRawBits());
 	return result;
 }
 
 Fixed Fixed::operator*(const Fixed &other)
 {
 	Fixed result;
-	result.setRawBits ((this->value * other.getRawBits()) >> fract);
+	result.setRawBits((this->value * other.getRawBits()) / (1 << fract));
 	return result;
 }
 
@@ -150,20 +150,20 @@ bool Fixed::operator>(const Fixed &other)
 	return (this->toFloat() > other.toFloat());
 }
 
-Fixed Fixed::min(Fixed left, Fixed right)
+Fixed &Fixed::min(Fixed &left, Fixed &right)
 {
 	return (left.toFloat() < right.toFloat() ? left : right);
 }
-Fixed Fixed::max(Fixed left, Fixed right)
+Fixed &Fixed::max(Fixed &left, Fixed &right)
 {
 	return (left.toFloat() > right.toFloat() ? left : right);
 }
 
-Fixed Fixed::min(const Fixed &left, const Fixed &right)
+Fixed const &Fixed::min(const Fixed &left, const Fixed &right)
 {
 	return (left.toFloat() < right.toFloat() ? left : right);
 }
-Fixed Fixed::max(const Fixed &left, Fixed const &right)
+Fixed const &Fixed::max(const Fixed &left, Fixed const &right)
 {
 	return (left.toFloat() > right.toFloat() ? left : right);
 }

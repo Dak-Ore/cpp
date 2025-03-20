@@ -41,10 +41,10 @@ public:
 	Fixed operator++();
 	Fixed operator--();
 
-	Fixed static min(Fixed left, Fixed right);
-	Fixed static max(Fixed left, Fixed right);
-	Fixed static min(const Fixed &left, const Fixed &right);
-	Fixed static max(const Fixed &left, Fixed const &right);
+	Fixed static &min(Fixed &left, Fixed &right);
+	Fixed static &max(Fixed &left, Fixed &right);
+	Fixed static const &min(const Fixed &left, const Fixed &right);
+	Fixed static const &max(const Fixed &left, const Fixed &right);
 
 };
 
