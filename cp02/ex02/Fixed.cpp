@@ -6,7 +6,7 @@
 /*   By: rsebasti <rsebasti@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 13:58:15 by rsebasti          #+#    #+#             */
-/*   Updated: 2025/03/20 15:24:00 by rsebasti         ###   ########.fr       */
+/*   Updated: 2025/03/20 15:27:20 by rsebasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,11 +159,11 @@ Fixed Fixed::max(Fixed left, Fixed right)
 	return (left.toFloat() > right.toFloat() ? left : right);
 }
 
-Fixed min(const Fixed &left, const Fixed &right)
+Fixed Fixed::min(const Fixed &left, const Fixed &right)
 {
 	return (left.toFloat() < right.toFloat() ? left : right);
 }
-Fixed max(const Fixed &left, Fixed const &right)
+Fixed Fixed::max(const Fixed &left, Fixed const &right)
 {
 	return (left.toFloat() > right.toFloat() ? left : right);
 }
