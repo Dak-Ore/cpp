@@ -6,7 +6,7 @@
 /*   By: rsebasti <rsebasti@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 13:58:15 by rsebasti          #+#    #+#             */
-/*   Updated: 2025/03/20 15:03:49 by rsebasti         ###   ########.fr       */
+/*   Updated: 2025/03/20 15:24:00 by rsebasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,3 +122,49 @@ Fixed Fixed::operator--(int)
 	--*this;
 	return temp;
 }
+
+bool Fixed::operator<=(const Fixed &other)
+{
+	return (this->toFloat() <= other.toFloat());
+}
+
+bool Fixed::operator!=(const Fixed &other)
+{
+	return (this->toFloat() != other.toFloat());
+}
+
+bool Fixed::operator==(const Fixed &other)
+{
+	return (this->toFloat() == other.toFloat());
+}
+bool Fixed::operator>=(const Fixed &other)
+{
+	return (this->toFloat() >= other.toFloat());
+}
+bool Fixed::operator<(const Fixed &other)
+{
+	return (this->toFloat() < other.toFloat());
+}
+bool Fixed::operator>(const Fixed &other)
+{
+	return (this->toFloat() > other.toFloat());
+}
+
+Fixed Fixed::min(Fixed left, Fixed right)
+{
+	return (left.toFloat() < right.toFloat() ? left : right);
+}
+Fixed Fixed::max(Fixed left, Fixed right)
+{
+	return (left.toFloat() > right.toFloat() ? left : right);
+}
+
+Fixed min(const Fixed &left, const Fixed &right)
+{
+	return (left.toFloat() < right.toFloat() ? left : right);
+}
+Fixed max(const Fixed &left, Fixed const &right)
+{
+	return (left.toFloat() > right.toFloat() ? left : right);
+}
+

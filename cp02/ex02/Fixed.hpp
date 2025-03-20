@@ -28,18 +28,24 @@ public:
 	Fixed operator/(const Fixed &other);
 	Fixed operator*(const Fixed &other);
 
-	bool &operator<=(const Fixed &other);
-	bool &operator!=(const Fixed &other);
-	bool &operator==(const Fixed &other);
-	bool &operator>=(const Fixed &other);
-	bool &operator<(const Fixed &other);
-	bool &operator>(const Fixed &other);
+	bool operator<=(const Fixed &other);
+	bool operator!=(const Fixed &other);
+	bool operator==(const Fixed &other);
+	bool operator>=(const Fixed &other);
+	bool operator<(const Fixed &other);
+	bool operator>(const Fixed &other);
 
 	Fixed operator++(int);
 	Fixed operator--(int);
 
 	Fixed operator++();
 	Fixed operator--();
+
+	Fixed static min(Fixed left, Fixed right);
+	Fixed static max(Fixed left, Fixed right);
+	Fixed static min(const Fixed &left, const Fixed &right);
+	Fixed static max(const Fixed &left, Fixed const &right);
+
 };
 
 std::ostream &operator<<(std::ostream &os, const Fixed &fx);
