@@ -1,8 +1,11 @@
-NAME = a.out
+NAME = Diamond
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 SOURCES = main.cpp \
-		Fixed.cpp
+		ClapTrap.cpp \
+		ScavTrap.cpp \
+		FragTrap.cpp \
+		DiamondTrap.cpp
 
 OBJS = $(SOURCES:.cpp=.o)
 
