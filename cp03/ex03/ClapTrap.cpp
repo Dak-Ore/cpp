@@ -6,7 +6,7 @@
 /*   By: rsebasti <rsebasti@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 16:48:52 by rsebasti          #+#    #+#             */
-/*   Updated: 2025/03/23 14:48:43 by rsebasti         ###   ########.fr       */
+/*   Updated: 2025/03/25 09:35:16 by rsebasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ ClapTrap::ClapTrap(std::string N)
 	this->energyPoint = 10;
 	this->hitPoint = 10;
 }
-ClapTrap::ClapTrap( ClapTrap &other)
+ClapTrap::ClapTrap(const ClapTrap &other)
 {
 	std::cout << "Copy constructor called on " << other.getName() << std::endl;
 	*this = other;
@@ -39,17 +39,20 @@ ClapTrap::~ClapTrap()
 {
 	std::cout << "ClapTrap " << this->name << " has been destroyed " << std::endl;
 }
-ClapTrap &ClapTrap::operator=( ClapTrap &other)
+ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 {
-	this->name = other.name;
-	this->attackDamage = other.attackDamage;
-	this->energyPoint = other.energyPoint;
-	this->hitPoint = other.hitPoint;
+	if (this != &other)
+	{
+		this->name = other.name;
+		this->attackDamage = other.attackDamage;
+		this->energyPoint = other.energyPoint;
+		this->hitPoint = other.hitPoint;
+	}
 
 	return (*this);
 }
 
-std::string ClapTrap::getName(void)
+std::string ClapTrap::getName(void) const
 {
 	return this->name;
 }

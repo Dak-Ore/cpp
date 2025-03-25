@@ -6,7 +6,7 @@
 /*   By: rsebasti <rsebasti@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:17:21 by rsebasti          #+#    #+#             */
-/*   Updated: 2025/03/23 22:10:50 by rsebasti         ###   ########.fr       */
+/*   Updated: 2025/03/24 11:58:31 by rsebasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,8 @@ int	main(void)
 	kitty->makeSound();
 	delete(kitty);
 
-	std::cout << std::endl << "<<<WRONG ANIMAL TESTING>>>" << std::endl;
-	const WrongAnimal* wrong = new WrongAnimal();
-	std::cout << "wrong type is : " << wrong->getType() << std::endl;
-	wrong->makeSound();
-	delete(wrong);
-
-	std::cout << std::endl << "<<<WRONG CAT TESTING>>>" << std::endl;
-	const WrongAnimal* wcat = new WrongCat();
-	std::cout << "wcat type is : " << wcat->getType() << std::endl;
-	wcat->makeSound();
-	delete(wcat);
+	std::cout << std::endl << "<<<BRAIN CAT TESTING>>>" << std::endl;
+	const Cat* smartCat = new Cat();
+	smartCat
+	
 }

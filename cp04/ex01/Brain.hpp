@@ -12,7 +12,7 @@ public:
 	Brain(const Brain &cpy);
 	virtual ~Brain();
 	std::string getIdea(unsigned int i) const;
-	void addIdea(unsigned int i);
+	void addIdea(std::string idea);
 	Brain &operator=(const Brain &cpy);
 };
 

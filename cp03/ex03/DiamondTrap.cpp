@@ -24,17 +24,20 @@ DiamondTrap::~DiamondTrap()
 {
 	std::cout << "DiamondTrap " << this->name << " has been destroyed " << std::endl;
 }
-DiamondTrap::DiamondTrap( DiamondTrap &other) : ClapTrap(other), ScavTrap(other), FragTrap(other)
+DiamondTrap::DiamondTrap(const DiamondTrap &other) : ClapTrap(other), ScavTrap(other), FragTrap(other)
 {
 	std::cout << "DiamondTrap " << other.name << " has been copied" << std::endl;
 	*this = other;
 }
-DiamondTrap &DiamondTrap::operator=(DiamondTrap &other)
+DiamondTrap &DiamondTrap::operator=(const DiamondTrap &other)
 {
-	this->name = other.name;
-	this->attackDamage = other.attackDamage;
-	this->energyPoint = other.energyPoint;
-	this->hitPoint = other.hitPoint;
+	if (this != &other)
+	{
+		this->name = other.name;
+		this->attackDamage = other.attackDamage;
+		this->energyPoint = other.energyPoint;
+		this->hitPoint = other.hitPoint;
+	}
 
 	return (*this);
 }

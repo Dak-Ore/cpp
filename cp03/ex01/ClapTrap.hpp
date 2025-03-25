@@ -6,7 +6,7 @@
 /*   By: rsebasti <rsebasti@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 16:27:35 by rsebasti          #+#    #+#             */
-/*   Updated: 2025/03/23 14:48:16 by rsebasti         ###   ########.fr       */
+/*   Updated: 2025/03/25 09:27:40 by rsebasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ protected:
 public:
 	ClapTrap();
 	ClapTrap(std::string N);
-	ClapTrap( ClapTrap &other);
-	~ClapTrap();
-	ClapTrap &operator=(ClapTrap &other);
-	std::string getName(void);
+	ClapTrap(const ClapTrap &other);
+	virtual ~ClapTrap();
+	ClapTrap &operator=(const ClapTrap &other);
+	std::string getName(void) const;
 	void	attack(const std::string& target);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);

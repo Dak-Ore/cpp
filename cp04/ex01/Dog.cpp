@@ -6,7 +6,7 @@
 /*   By: rsebasti <rsebasti@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:02:41 by rsebasti          #+#    #+#             */
-/*   Updated: 2025/03/23 22:10:54 by rsebasti         ###   ########.fr       */
+/*   Updated: 2025/03/24 11:57:33 by rsebasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 Dog::Dog(): Animal()
 {
 	this->type = "dog";
+	brain = new Brain();
 	std::cout << "Dog default constructor called" << std::endl;
 }
 Dog::Dog(const Dog &cpy): Animal(cpy)
@@ -24,11 +25,12 @@ Dog::Dog(const Dog &cpy): Animal(cpy)
 Dog::~Dog()
 {
 	std::cout << "Dog has been destroyed" << std::endl;
+	delete(brain);
 }
 Dog &Dog::operator=(const Dog &cpy)
 {
 	this->type = cpy.type;
-
+	this->brain = cpy.brain;
 	return (*this);
 }
 

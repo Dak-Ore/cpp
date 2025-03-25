@@ -6,7 +6,7 @@
 /*   By: rsebasti <rsebasti@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 17:58:52 by rsebasti          #+#    #+#             */
-/*   Updated: 2025/03/23 14:48:56 by rsebasti         ###   ########.fr       */
+/*   Updated: 2025/03/25 09:32:22 by rsebasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ private:
 public:
 	ScavTrap();
 	ScavTrap(std::string n);
-	~ScavTrap();
-	ScavTrap( ScavTrap &other);
-	ScavTrap &operator=(ScavTrap &other);
+	virtual ~ScavTrap();
+	ScavTrap(const ScavTrap &other);
+	ScavTrap &operator=(const ScavTrap &other);
 	void	guardGate();
 	void	attack(const std::string& target);
 };

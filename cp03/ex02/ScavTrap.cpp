@@ -6,7 +6,7 @@
 /*   By: rsebasti <rsebasti@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 18:03:22 by rsebasti          #+#    #+#             */
-/*   Updated: 2025/03/23 14:49:36 by rsebasti         ###   ########.fr       */
+/*   Updated: 2025/03/25 09:32:08 by rsebasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,20 @@ ScavTrap::~ScavTrap()
 {
 	std::cout << "ScavTrap " << this->name << " has been destroyed " << std::endl;
 }
-ScavTrap::ScavTrap( ScavTrap &other) : ClapTrap(other)
+ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
 {
 	std::cout << "ScavTrap " << other.name << " has been created" << std::endl;
 	*this = other;
 }
-ScavTrap &ScavTrap::operator=(ScavTrap &other)
+ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 {
-	this->name = other.name;
-	this->attackDamage = other.attackDamage;
-	this->energyPoint = other.energyPoint;
-	this->hitPoint = other.hitPoint;
+	if (this != &other)
+	{
+		this->name = other.name;
+		this->attackDamage = other.attackDamage;
+		this->energyPoint = other.energyPoint;
+		this->hitPoint = other.hitPoint;
+	}
 
 	return (*this);
 }

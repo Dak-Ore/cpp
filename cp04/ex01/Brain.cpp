@@ -6,7 +6,7 @@
 /*   By: rsebasti <rsebasti@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 22:26:42 by rsebasti          #+#    #+#             */
-/*   Updated: 2025/03/23 22:30:44 by rsebasti         ###   ########.fr       */
+/*   Updated: 2025/03/24 12:57:26 by rsebasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,36 @@ Brain::~Brain()
 {
 	std::cout << "Brain destructor called" << std::endl;
 }
-	std::string getIdea(unsigned int i) const;
-	void addIdea(unsigned int i);
-	Brain &operator=(const Brain &cpy);
+std::string Brain::getIdea(unsigned int i) const
+{
+	if (i < 100)
+	{
+		if (!this->ideas[i].empty())
+			return (this->ideas[i]);
+		return "EMPTY";
+	}
+	std::cerr << "Can't get this idea ! (i need to be < 100)" << std::endl;
+}
+
+void Brain::addIdea(std::string idea)
+{
+	int	i;
+
+	i = 0;
+	while (i < 100 && !this->ideas[i].empty())
+		i++;
+	if (i == 100)
+		std::cerr << "Can't add more idea ! (100 max)" << std::endl;
+	this->ideas[i] = idea;
+}
+	
+Brain &Brain::operator=(const Brain &cpy)
+{
+	if (this != &cpy)
+	{
+		for (int i = 0; i++; i < 100)
+			this->ideas[i] = cpy.ideas[i];
+	}
+
+	return (*this);
+}
