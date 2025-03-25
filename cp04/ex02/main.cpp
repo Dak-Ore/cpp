@@ -6,7 +6,7 @@
 /*   By: rsebasti <rsebasti@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:17:21 by rsebasti          #+#    #+#             */
-/*   Updated: 2025/03/25 22:44:06 by rsebasti         ###   ########.fr       */
+/*   Updated: 2025/03/25 22:40:23 by rsebasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,12 @@
 
 int	main(void)
 {
-	std::cout << "<<<SUBJECT TESTING>>>" << std::endl;
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
-	delete(meta);
-	delete(i);
-	delete(j);
-
-	std::cout << std::endl << "<<<ANIMAL TESTING>>>" << std::endl;
-	const Animal* anim = new Animal();
-	std::cout << "anim type is : " << anim->getType() << std::endl;
-	anim->makeSound();
-	delete(anim);
+	// UNCOMMENTING = ERROR BECAUSE ABSTRACT CLASS
+	// std::cout << std::endl << "<<<ANIMAL TESTING>>>" << std::endl;
+	// const Animal* anim = new Animal();
+	// std::cout << "anim type is : " << anim->getType() << std::endl;
+	// anim->makeSound();
+	// delete(anim);
 
 	std::cout << std::endl << "<<<DOG TESTING>>>" << std::endl;
 	const Animal* doge = new Dog();
@@ -60,7 +48,7 @@ int	main(void)
 	copyCat->getBrain()->addIdea("Bad idea");
 	std::cout << copyCat->getBrain()->getIdea(2) << std::endl;
 	std::cout << smartCat->getBrain()->getIdea(2) << std::endl;
-	delete(copyCat);
 	delete(smartCat);
+	delete(copyCat);
 	
 }

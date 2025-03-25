@@ -1,5 +1,5 @@
 NAME = Animals
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -g -std=c++98
 
 SOURCES = Cat.cpp \
 		Dog.cpp \

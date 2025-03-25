@@ -6,7 +6,7 @@
 /*   By: rsebasti <rsebasti@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 15:56:11 by rsebasti          #+#    #+#             */
-/*   Updated: 2025/03/23 16:33:37 by rsebasti         ###   ########.fr       */
+/*   Updated: 2025/03/25 22:35:57 by rsebasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ Animal::~Animal()
 }
 Animal &Animal::operator=(const Animal &cpy)
 {
-	this->type = cpy.type;
+	if (this != &cpy)
+		this->type = cpy.type;
 
 	return (*this);
 }

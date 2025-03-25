@@ -1,34 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongWrongCat.cpp                                       :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rsebasti <rsebasti@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/23 16:02:41 by rsebasti          #+#    #+#             */
-/*   Updated: 2025/03/23 22:03:38 by rsebasti         ###   ########.fr       */
+/*   Created: 2025/03/26 00:22:29 by rsebasti          #+#    #+#             */
+/*   Updated: 2025/03/26 00:22:30 by rsebasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "AMateria.hpp"
 
-WrongCat::WrongCat(): WrongAnimal()
+AMateria::AMateria()
 {
-	this->type = "WrongCat";
-	std::cout << "WrongCat default constructor called" << std::endl;
 }
-WrongCat::WrongCat(const WrongCat &cpy): WrongAnimal(cpy)
-{
-	*this = cpy;
-}
-WrongCat::~WrongCat()
-{
-	std::cout << "WrongCat has been destroyed" << std::endl;
-}
-WrongCat &WrongCat::operator=(const WrongCat &cpy)
-{
-	if (this != &cpy)
-		this->type = cpy.type;
 
-	return (*this);
+AMateria::AMateria(std::string const & type)
+{
+	this->_type = type;
+}
+
+AMateria::AMateria( const AMateria & src )
+{
+	*this = src;
+}
+
+AMateria::~AMateria()
+{
+}
+
+std::string const &AMateria::getType() const
+{
+	return this->_type;
+}
+
+AMateria &				AMateria::operator=( AMateria const & rhs )
+{
+	if ( this != &rhs )
+	{
+		this->_type = rhs._type;
+	}
+	return *this;
 }

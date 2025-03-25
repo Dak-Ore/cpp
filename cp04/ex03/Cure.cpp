@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongWrongCat.cpp                                       :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rsebasti <rsebasti@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/23 16:02:41 by rsebasti          #+#    #+#             */
-/*   Updated: 2025/03/23 22:03:38 by rsebasti         ###   ########.fr       */
+/*   Created: 2025/03/26 00:22:35 by rsebasti          #+#    #+#             */
+/*   Updated: 2025/03/26 00:40:52 by rsebasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "Cure.hpp"
 
-WrongCat::WrongCat(): WrongAnimal()
+Cure::Cure(): AMateria("cure")
 {
-	this->type = "WrongCat";
-	std::cout << "WrongCat default constructor called" << std::endl;
 }
-WrongCat::WrongCat(const WrongCat &cpy): WrongAnimal(cpy)
-{
-	*this = cpy;
-}
-WrongCat::~WrongCat()
-{
-	std::cout << "WrongCat has been destroyed" << std::endl;
-}
-WrongCat &WrongCat::operator=(const WrongCat &cpy)
-{
-	this->type = cpy.type;
 
-	return (*this);
+Cure::Cure( const Cure & src )
+{
+	*this = src;
 }
+
+Cure::~Cure()
+{
+}
+
+Cure &				Cure::operator=( Cure const & rhs )
+{
+	this->_type = rhs._type;
+	return *this;
+}
+

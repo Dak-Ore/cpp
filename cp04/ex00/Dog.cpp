@@ -6,7 +6,7 @@
 /*   By: rsebasti <rsebasti@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:02:41 by rsebasti          #+#    #+#             */
-/*   Updated: 2025/03/25 10:36:30 by rsebasti         ###   ########.fr       */
+/*   Updated: 2025/03/25 22:36:12 by rsebasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@ Dog::~Dog()
 }
 Dog &Dog::operator=(const Dog &cpy)
 {
-	this->type = cpy.type;
-
+	if (this != &cpy)
+		this->type = cpy.type;
+		
 	return (*this);
 }
 
