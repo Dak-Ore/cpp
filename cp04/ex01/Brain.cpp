@@ -6,7 +6,7 @@
 /*   By: rsebasti <rsebasti@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 22:26:42 by rsebasti          #+#    #+#             */
-/*   Updated: 2025/03/24 12:57:26 by rsebasti         ###   ########.fr       */
+/*   Updated: 2025/03/25 10:45:00 by rsebasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ std::string Brain::getIdea(unsigned int i) const
 		return "EMPTY";
 	}
 	std::cerr << "Can't get this idea ! (i need to be < 100)" << std::endl;
+	return ("NULL");
 }
 
 void Brain::addIdea(std::string idea)
@@ -53,7 +54,7 @@ Brain &Brain::operator=(const Brain &cpy)
 {
 	if (this != &cpy)
 	{
-		for (int i = 0; i++; i < 100)
+		for (int i = 0; i < 100; i++)
 			this->ideas[i] = cpy.ideas[i];
 	}
 

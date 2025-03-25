@@ -6,7 +6,7 @@
 /*   By: rsebasti <rsebasti@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:02:41 by rsebasti          #+#    #+#             */
-/*   Updated: 2025/03/23 22:10:54 by rsebasti         ###   ########.fr       */
+/*   Updated: 2025/03/25 10:36:30 by rsebasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ Dog::Dog(): Animal()
 }
 Dog::Dog(const Dog &cpy): Animal(cpy)
 {
+	std::cout << "Dog copy constructor called" << std::endl;
 	*this = cpy;
 }
 Dog::~Dog()

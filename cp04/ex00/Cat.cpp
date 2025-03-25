@@ -6,7 +6,7 @@
 /*   By: rsebasti <rsebasti@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:02:41 by rsebasti          #+#    #+#             */
-/*   Updated: 2025/03/23 16:22:26 by rsebasti         ###   ########.fr       */
+/*   Updated: 2025/03/25 10:35:56 by rsebasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ Cat::Cat(): Animal()
 }
 Cat::Cat(const Cat &cpy): Animal(cpy)
 {
+	std::cout << "Cat copy constructor called" << std::endl;
 	*this = cpy;
 }
 Cat::~Cat()

@@ -6,7 +6,8 @@ SOURCES = Cat.cpp \
 		Animal.cpp \
 		main.cpp \
 		WrongAnimal.cpp \
-		WrongCat.cpp 
+		WrongCat.cpp \
+		Brain.cpp
 OBJS = $(SOURCES:.cpp=.o)
 
 $(NAME): $(OBJS)
