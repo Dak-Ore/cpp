@@ -10,7 +10,7 @@ class Cure: virtual public AMateria
 
 		Cure();
 		Cure( Cure const & src );
-		~Cure();
+		virtual ~Cure();
 		Cure &		operator=( Cure const & rhs );
 
 		Cure *clone() const;

@@ -6,7 +6,7 @@
 /*   By: rsebasti <rsebasti@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 00:22:35 by rsebasti          #+#    #+#             */
-/*   Updated: 2025/03/26 00:40:52 by rsebasti         ###   ########.fr       */
+/*   Updated: 2025/03/26 11:02:14 by rsebasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,19 @@ Cure::~Cure()
 {
 }
 
-Cure &				Cure::operator=( Cure const & rhs )
+Cure &Cure::operator=( Cure const & rhs )
 {
-	this->_type = rhs._type;
+	if (this != &rhs)
+		this->_type = rhs._type;
 	return *this;
 }
 
+Cure *Cure::clone() const
+{
+	return (new Cure());
+}
+
+void Cure::use(ICharacter &target)
+{
+	std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
+}

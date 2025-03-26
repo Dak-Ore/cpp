@@ -6,7 +6,7 @@
 /*   By: rsebasti <rsebasti@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 00:22:29 by rsebasti          #+#    #+#             */
-/*   Updated: 2025/03/26 00:22:30 by rsebasti         ###   ########.fr       */
+/*   Updated: 2025/03/26 10:46:45 by rsebasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,9 @@ AMateria &				AMateria::operator=( AMateria const & rhs )
 		this->_type = rhs._type;
 	}
 	return *this;
+}
+
+void AMateria::use(ICharacter& target)
+{
+	std::cout << "* nothing on " << target.getName() << std::endl;
 }

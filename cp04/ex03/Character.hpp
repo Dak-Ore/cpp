@@ -1,24 +1,28 @@
 #ifndef CHARACTER_HPP
 # define CHARACTER_HPP
 
-# include <iostream>
-# include <string>
+# include "ICharacter.hpp"
 
-class Character
+
+# define INVENTORY_SLOT 4
+class Character: virtual public ICharacter
 {
 
 	public:
 
 		Character();
+		Character( std::string name);
 		Character( Character const & src );
-		~Character();
-
+		virtual ~Character();
 		Character &		operator=( Character const & rhs );
-
+		std::string const & getName() const;
+		void equip(AMateria* m);
+		void unequip(int idx);
+		void use(int idx, ICharacter& target);
 	private:
-
+		std::string _name;
+		AMateria *_inventory[INVENTORY_SLOT];
 };
 
-std::ostream &			operator<<( std::ostream & o, Character const & i );
 
-#endif /* ******************************************************* CHARACTER_H */
+#endif

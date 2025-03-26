@@ -6,7 +6,7 @@
 /*   By: rsebasti <rsebasti@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 00:22:38 by rsebasti          #+#    #+#             */
-/*   Updated: 2025/03/26 00:42:41 by rsebasti         ###   ########.fr       */
+/*   Updated: 2025/03/26 10:01:47 by rsebasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Ice::Ice() : AMateria("ice")
 
 Ice::Ice( const Ice & src)
 {
-	this->
+	*this = src;
 }
 
 Ice::~Ice()
@@ -28,7 +28,7 @@ Ice::~Ice()
 Ice &Ice::operator=( Ice const & rhs )
 {
 	if (this != &rhs)
-	this->_type = rhs._type;
+		this->_type = rhs._type;
 	return *this;
 }
 

@@ -1,55 +1,65 @@
 #include "MateriaSource.hpp"
 
-/*
-** ------------------------------- CONSTRUCTOR --------------------------------
-*/
-
 MateriaSource::MateriaSource()
 {
+	for (int i = 0; i < INVENTORY_SLOT; i++)
+		this->_source[i] = NULL; 
 }
 
 MateriaSource::MateriaSource( const MateriaSource & src )
 {
+	*this = src;
 }
-
-
-/*
-** -------------------------------- DESTRUCTOR --------------------------------
-*/
 
 MateriaSource::~MateriaSource()
 {
+	for (int i = 0; i < INVENTORY_SLOT; i++)
+		if (this->_source[i])
+			delete(this->_source[i]); 
 }
 
 
-/*
-** --------------------------------- OVERLOAD ---------------------------------
-*/
-
-MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
+MateriaSource &MateriaSource::operator=( MateriaSource const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this != &rhs )
+	{
+		for (int i = 0; i < INVENTORY_SLOT; i++)
+		{
+			if (rhs._source[i])
+				this->_source[i] = rhs._source[i]->clone();
+			else
+				this->_source[i] = NULL;
+		}
+	}
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, MateriaSource const & i )
+
+void MateriaSource::learnMateria(AMateria* m)
 {
-	//o << "Value = " << i.getValue();
-	return o;
+	int i = 0;
+	while (this->_source[i])
+	{
+		if (this->_source[i] == m)
+			return ;
+		i++;
+	}
+	if (i < INVENTORY_SLOT)
+	{
+		this->_source[i] = m;
+		return ;
+	}
 }
-
-
-/*
-** --------------------------------- METHODS ----------------------------------
-*/
-
-
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
-
-
-/* ************************************************************************** */
+AMateria* MateriaSource::createMateria(std::string const & type)
+{
+	int i = 0;
+	while (i < INVENTORY_SLOT)
+	{
+		if (this->_source[i] && this->_source[i]->getType() == type)
+			break ;
+		i++;
+	}
+	if (i < INVENTORY_SLOT && this->_source[i])
+		return this->_source[i]->clone();
+	return (0);
+}
