@@ -2,7 +2,10 @@ NAME = a.out
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 SOURCES = Bureaucrat.cpp \
-		Form.cpp \
+		AForm.cpp \
+		PresidentialPardonForm.cpp \
+		RobotomyRequestForm.cpp \
+		ShrubberyCreationForm.cpp \
 		main.cpp
 
 OBJS = $(SOURCES:.cpp=.o)

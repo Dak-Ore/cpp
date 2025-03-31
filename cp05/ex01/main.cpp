@@ -55,7 +55,12 @@ int main(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
-
-
+	Bureaucrat one = Bureaucrat("one", 1);
+	Bureaucrat two = Bureaucrat("two", 150);
+	Form easy = Form("easy", 75, 75);
+	Form hard = Form("hard", 1, 1);
+	one.signForm(easy);
+	two.signForm(easy);
+	one.signForm(hard);
 	return 0;
 }

@@ -12,26 +12,23 @@
 
 #include "Form.hpp"
 
-Form::Form() : grade_exec(75), grade_sign(75)
+Form::Form() : name("default"), grade_sign(75), grade_exec(75)
 {
-	this->name = "default";
 	this->isSigned = 0;
 }
 
-Form::Form(std::string name, unsigned int grade)
+Form::Form(std::string formname, unsigned int grade_s, unsigned int grade_e) : name(formname), grade_sign(grade_s), grade_exec(grade_e)
 {
-	this->name = name;
-	if (grade < 1)
+	this->isSigned = 0;
+	if (grade_e < 1 || grade_s < 1)
 		throw Form::GradeTooHighException();
-	else if (grade > 150)
+	else if (grade_e > 150 || grade_s > 150)
 		throw Form::GradeTooLowException();
-	else
-		this->grade = grade;
 }
 
-Form::Form( const Form & src)
+Form::Form( const Form & src): name(src.getName()), grade_sign(src.getGradeSign()), grade_exec(src.getGradeExec())
 {
-	*this = src;
+	this->isSigned = src.getIsSigned();
 }
 
 Form::~Form()
@@ -41,10 +38,7 @@ Form::~Form()
 Form &Form::operator=( Form const & rhs )
 {
 	if (this != &rhs)
-	{
-		this->name = rhs.name;
-		this->grade = rhs.grade;
-	}	
+		*this = Form(rhs);
 	return *this;
 }
 
