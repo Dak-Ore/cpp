@@ -86,9 +86,9 @@ const char *AForm::FormNotSigned::what() const throw()
 	return ("Form not signed");
 }
 
-// std::ostream &operator<<(std::ostream &os, const AForm print)
-// {
-// 	os << "AForm " << print.getName() <<" inscription grade minimal grade is " << print.getGradeSign() << " and execution minimal grade is " << print.getGradeExec();
-// 	os << ", AForm " << (print.getIsSigned() ? "is not signed." : "is signed.");
-// 	return os;
-// }
+std::ostream &operator<<(std::ostream &os, const AForm &print)
+{
+	os << "AForm " << print.getName() <<" inscription grade minimal grade is " << print.getGradeSign() << " and execution minimal grade is " << print.getGradeExec();
+	os << ", AForm " << (print.getIsSigned() ? "is not signed." : "is signed.");
+	return os;
+}

@@ -20,7 +20,7 @@ Intern& Intern::operator=(const Intern& other) {
 Intern::~Intern() {
 }
 
-AForm *makeForm(std::string kind, std::string target)
+AForm *Intern::makeForm(std::string kind, std::string target)
 {
 	std::string	forms[] = {"robotomy request", "shrubbery creation", "presidential pardon"};
 

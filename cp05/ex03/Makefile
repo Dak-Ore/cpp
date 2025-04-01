@@ -6,6 +6,7 @@ SOURCES = Bureaucrat.cpp \
 		PresidentialPardonForm.cpp \
 		RobotomyRequestForm.cpp \
 		ShrubberyCreationForm.cpp \
+		Intern.cpp \
 		main.cpp
 
 OBJS = $(SOURCES:.cpp=.o)
@@ -19,7 +20,7 @@ $(NAME): $(OBJS)
 all: $(NAME)
 
 clean:
-	rm -rf $(OBJS)
+	rm -rf $(OBJS) *.shrubbery
 
 fclean: clean
 	rm -f $(NAME)

@@ -1,13 +1,14 @@
 #include "ShrubberyCreationForm.hpp"
 
 // Default Constructor
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("default", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("dshrubbery", 145, 137)
 {
 	this->target = "default";
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string name) : AForm(name, 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string name) : AForm("shrubbery", 145, 137)
 {
+	this->target = name;
 }
 
 // Copy Constructor

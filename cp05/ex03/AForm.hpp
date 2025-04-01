@@ -45,5 +45,6 @@ class AForm
 		const unsigned int grade_sign;
 		const unsigned int grade_exec;
 };
+std::ostream &operator<<(std::ostream &os, const AForm &print);
 
 #endif 

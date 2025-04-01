@@ -1,7 +1,7 @@
 #include "RobotomyRequestForm.hpp"
 
 // Default Constructor
-RobotomyRequestForm::RobotomyRequestForm() : AForm("default", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm() : AForm("drobotomy", 72, 45)
 {
 	this->target = "default";
 }

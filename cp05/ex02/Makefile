@@ -19,7 +19,7 @@ $(NAME): $(OBJS)
 all: $(NAME)
 
 clean:
-	rm -rf $(OBJS)
+	rm -rf $(OBJS) *.shrubbery
 
 fclean: clean
 	rm -f $(NAME)
