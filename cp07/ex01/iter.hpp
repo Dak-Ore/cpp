@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <string>
 
 template <typename T>
 void iter (T *adr, int length, void(*f)(T &))

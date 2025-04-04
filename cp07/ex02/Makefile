@@ -1,7 +1,7 @@
-NAME = iter
-FLAGS = -Wall -Wextra -Werror -std=c++98
+NAME = array
+FLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SOURCES = main.cpp
+SOURCES = main.cpp 
 
 OBJS = $(SOURCES:.cpp=.o)
 
