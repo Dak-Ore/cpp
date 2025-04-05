@@ -1,14 +1,22 @@
 #include <iostream>
-#include <cstdlib>
-#include <string>
-#include <vector>
+#include <algorithm>
+#include <exception>
+
+class NotInContainerException : public std::exception
+{
+	public:
+		virtual const char *what() const throw()
+		{
+			return ("value not in container");
+		}
+};
 
 template <typename T>
-T easyfind(std::vector<T> container, T toSearch)
+typename T::iterator easyfind(T &container, int toSearch)
 {
-	for (std::vector<T>::iterator it = container.begin(); it != container.end(); it++)
-	{
-		if (&it == T)
-			return T;
-	}
+	typename T::iterator i;
+	i = std::find(container.begin(), container.end(), toSearch);
+	if (i == container.end() && *i != toSearch)
+		throw NotInContainerException();
+	return (i);
 }

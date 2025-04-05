@@ -1,4 +1,4 @@
-NAME = array
+NAME = find
 FLAGS = -Wall -Wextra -Werror -g -std=c++98
 
 SOURCES = main.cpp 
