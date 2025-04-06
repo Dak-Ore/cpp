@@ -62,6 +62,10 @@ void	rangeTest()
 
 void	createNSpan(unsigned int N, unsigned int mod)
 {
+	std::cout << "<< TESTING WITH A SPAN OF SIZE " << N;
+	if (mod != 0)
+		std::cout << " MODULO " << mod;
+	std::cout << " >>" << std::endl;
 	Span span = Span(N);
 	try
 	{
@@ -86,6 +90,22 @@ void	createNSpan(unsigned int N, unsigned int mod)
 	
 }
 
+void spanOnTooShort()
+{
+	std::cout << "<< SPAN TOO SHORT >>" << std::endl;
+	Span span = Span(1);
+	try
+	{
+		std::cout << "shortest span: " << span.shortestSpan() << std::endl;
+		std::cout << "longest span : " << span.longestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
+}
+
 int main(int c, char const **argv)
 {
 	if (c == 1)
@@ -94,7 +114,8 @@ int main(int c, char const **argv)
 		overflowTest();
 		negativeTest();
 		rangeTest();
-		createNSpan(10000, 100);
+		spanOnTooShort();
+		createNSpan(50000,0);
 	}
 	else
 	{
