@@ -57,7 +57,8 @@
 		"variant": "cpp",
 		"fstream": "cpp",
 		"map": "cpp",
-		"*.tpp": "cpp"
+		"*.tpp": "cpp",
+		"list": "cpp"
 	},
 	"C_Cpp.errorSquiggles": "enabled",
 }
