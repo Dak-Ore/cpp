@@ -73,15 +73,18 @@ void BitcoinExchange::readData(std::string file)
 		while (fileRead.good())
 		{
 			std::getline(fileRead, line);
-			std::string date = line.substr(0, 10); 
-			float value = atof(line.substr(line.find(',') + 1, line.length() - line.find(',') + 1).c_str());
-			if (!isCorrect(date))
-				std::cerr << "Error : bad imput => " << date << std::endl;
-			else if (value < 0)
-				std::cerr << "Error : not a positive number. " << date << std::endl;
-			else
-				this->data.insert(std::pair<std::string, float>(date, value));
-		}
+			if (!line.empty())
+			{
+				std::string date = line.substr(0, 10); 
+				float value = atof(line.substr(line.find(',') + 1, line.length() - line.find(',') + 1).c_str());
+				if (!isCorrect(date))
+					std::cerr << "Error : bad input => " << date << std::endl;
+				else if (value < 0)
+					std::cerr << "Error : not a positive number. " << std::endl;
+				else
+					this->data.insert(std::pair<std::string, float>(date, value));
+			}
+					}
 		fileRead.close();
 	}
 	else
@@ -102,7 +105,7 @@ void BitcoinExchange::findNearest(std::string date, float value)
 			else
 			{
 				it--;
-				std::cout << date << " => " << value << value*it->second << std::endl;
+				std::cout << date << " => " << value << " = " << value*it->second << std::endl;
 				return ;
 			}
 		}
@@ -120,16 +123,19 @@ void BitcoinExchange::readInput(std::string file)
 		while (fileRead.good())
 		{
 			std::getline(fileRead, line);
-			std::string date = line.substr(0, 10); 
-			float value = atof(line.substr(line.find('|') + 2, line.length() - line.find('|') + 2).c_str());
-			if (!isCorrect(date))
-				std::cerr << "Error : bad imput => " << date << std::endl;
-			else if (value < 0)
-				std::cerr << "Error : not a positive number. " << date << std::endl;
-			else if (value > 1000)
-				std::cerr << "Error: too large a number." << std::endl;
-			else
-				findNearest(date, value);
+			if (!line.empty())
+			{
+				std::string date = line.substr(0, 10); 
+				float value = atof(line.substr(line.find('|') + 2, line.length() - line.find('|') + 2).c_str());
+				if (!isCorrect(date))
+					std::cerr << "Error : bad input => " << date << std::endl;
+				else if (value < 0)
+					std::cerr << "Error : not a positive number. " << std::endl;
+				else if (value > 1000)
+					std::cerr << "Error: too large a number." << std::endl;
+				else
+					findNearest(date, value);
+			}
 		}
 		fileRead.close();
 	}
