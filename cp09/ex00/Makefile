@@ -1,7 +1,7 @@
 NAME = btc
 FLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SOURCES = main.cpp
+SOURCES = BitcoinExchange.cpp
 
 OBJS = $(SOURCES:.cpp=.o)
 

@@ -12,7 +12,7 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange& other) {
 // Copy Assignment Operator
 BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other) {
     if (this != &other) {
-        // Copy attributes here
+        this->data = other.data;
     }
     return *this;
 }
@@ -52,9 +52,9 @@ bool isCorrect(std::string date)
 		return (0);
 	else if(month == 2)
 	{
-		if (isBisextile && day > 29)
+		if (isBisextile(year) && day > 29)
 			return (0);
-		else if (day > 28)
+		else if (!isBisextile(year) && day > 28)
 			return (0);
 	}
 	else if (day > 31)
@@ -62,3 +62,91 @@ bool isCorrect(std::string date)
 	return (1);
 }
 
+void BitcoinExchange::readData(std::string file)
+{
+	std::ifstream fileRead(file.c_str(), std::ios::in);
+	std::string	line;
+
+	if (fileRead)
+	{
+		std::getline(fileRead, line);
+		while (fileRead.good())
+		{
+			std::getline(fileRead, line);
+			std::string date = line.substr(0, 10); 
+			float value = atof(line.substr(line.find(',') + 1, line.length() - line.find(',') + 1).c_str());
+			if (!isCorrect(date))
+				std::cerr << "Error : bad imput => " << date << std::endl;
+			else if (value < 0)
+				std::cerr << "Error : not a positive number. " << date << std::endl;
+			else
+				this->data.insert(std::pair<std::string, float>(date, value));
+		}
+		fileRead.close();
+	}
+	else
+		std::cerr << "Cannot open file" << std::endl;
+}
+
+void BitcoinExchange::findNearest(std::string date, float value)
+{
+	for (std::map<std::string, float>::iterator it = this->data.begin() ; it != this->data.end(); it++)
+	{
+		if (it->first > date)
+		{
+			if (it == data.begin())
+			{
+				std::cerr << "Error: no input for this data" << std::endl;
+				return ;
+			}
+			else
+			{
+				it--;
+				std::cout << date << " => " << value << value*it->second << std::endl;
+				return ;
+			}
+		}
+	}
+}
+
+void BitcoinExchange::readInput(std::string file)
+{
+	std::ifstream fileRead(file.c_str(), std::ios::in);
+	std::string	line;
+
+	if (fileRead)
+	{
+		std::getline(fileRead, line);
+		while (fileRead.good())
+		{
+			std::getline(fileRead, line);
+			std::string date = line.substr(0, 10); 
+			float value = atof(line.substr(line.find('|') + 2, line.length() - line.find('|') + 2).c_str());
+			if (!isCorrect(date))
+				std::cerr << "Error : bad imput => " << date << std::endl;
+			else if (value < 0)
+				std::cerr << "Error : not a positive number. " << date << std::endl;
+			else if (value > 1000)
+				std::cerr << "Error: too large a number." << std::endl;
+			else
+				findNearest(date, value);
+		}
+		fileRead.close();
+	}
+	else
+		std::cerr << "Cannot open file" << std::endl;
+}
+
+int main(int c, char const **v)
+{
+	if (c < 2)
+		std::cerr << "Error: could not open file." << std::endl;
+	else
+	{
+		BitcoinExchange btc;
+		btc.readData("data.csv");
+		btc.readInput(v[1]);
+	}
+
+	return 0;
+}
