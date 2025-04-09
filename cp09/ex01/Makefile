@@ -1,7 +1,8 @@
-NAME = mutant
+NAME = RPN
 FLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SOURCES = main.cpp
+SOURCES = main.cpp \
+		RPN.cpp
 
 OBJS = $(SOURCES:.cpp=.o)
 

@@ -2,6 +2,9 @@
 # define RPN_HPP
 
 # include <iostream>
+# include <stack>
+# include <algorithm>
+# include <exception>
 
 class RPN
 {
@@ -17,6 +20,17 @@ public:
     
     // Destructor
     ~RPN();
+
+	class ErrorInvalidCharacter : public std::exception
+	{
+		public:
+			virtual const char *what() const throw();
+	};
+
+	int	calculate(std::string calcul);
+
+private:
+	std::stack<int>	_calcul;
 };
 
 #endif

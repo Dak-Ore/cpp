@@ -58,7 +58,9 @@
 		"fstream": "cpp",
 		"map": "cpp",
 		"*.tpp": "cpp",
-		"list": "cpp"
+		"list": "cpp",
+		"cstring": "cpp",
+		"text_encoding": "cpp"
 	},
 	"C_Cpp.errorSquiggles": "enabled",
 }
