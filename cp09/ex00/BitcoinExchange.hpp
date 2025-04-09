@@ -23,8 +23,7 @@ public:
     // Destructor
     ~BitcoinExchange();
 
-	void readData(std::string file);
-	void readInput(std::string file);
+	void readInput(std::string file, bool kind);
 	void findNearest(std::string date, float value);
 private:
 	std::map<std::string, float> data;
