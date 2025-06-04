@@ -74,14 +74,6 @@ unsigned int Span::longestSpan() const
 }
 
 
-void	Span::addNumberRange(std::vector<int>::iterator first, std::vector<int>::iterator last)
-{
-	if (this->_vector.size() + std::distance(first, last) > this->_N)
-		throw (TooManyNumberException());
-	this->_vector.insert(this->_vector.end(), first, last);
-
-}
-
 void	Span::print() const
 {
 	std::cout << "span : " << std::endl << "       ";

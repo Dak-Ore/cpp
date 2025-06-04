@@ -12,7 +12,7 @@ void	subjectTest()
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
 	sp.print();
-
+	std::cout << std::endl;
 }
 
 void	overflowTest()
@@ -33,6 +33,7 @@ void	overflowTest()
 	{
 		std::cerr << e.what() << '\n';
 	}
+	std::cout << std::endl;
 }
 
 void	negativeTest()
@@ -47,6 +48,7 @@ void	negativeTest()
 	std::cout << "shortest span: " << sp.shortestSpan() << std::endl;
 	std::cout << "longest span : " << sp.longestSpan() << std::endl;
 	sp.print();
+	std::cout << std::endl;
 }
 
 void	rangeTest()
@@ -58,6 +60,7 @@ void	rangeTest()
 	Span big = Span(20);
 	big.addNumberRange(sp.begin(), sp.end());
 	big.print();
+	std::cout << std::endl;
 }
 
 void	createNSpan(unsigned int N, unsigned int mod)
@@ -87,7 +90,7 @@ void	createNSpan(unsigned int N, unsigned int mod)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
+	std::cout << std::endl;
 }
 
 void spanOnTooShort()
@@ -103,7 +106,7 @@ void spanOnTooShort()
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
+	std::cout << std::endl;
 }
 
 int main(int c, char const **argv)

@@ -89,6 +89,7 @@ void displayMstack(MutantStack<int> mstack)
 			++it;
 		}
 	}
+	std::cout << std::endl;
 }
 
 void moreTest()
@@ -104,11 +105,15 @@ void moreTest()
 	mstack.push(-5);
 	mstack.push(601);
 	mstack.push(7351);
+	std::cout << "Mstack :" << std::endl;
 	displayMstack(mstack);
 	MutantStack<int> cpy(mstack);
+	std::cout << "Copy :" << std::endl;
 	displayMstack(cpy);
 	cpy.push(555555);
+	std::cout << "Mstack :" << std::endl;
 	displayMstack(mstack);
+	std::cout << "Copy :" << std::endl;
 	displayMstack(cpy);
 }
 

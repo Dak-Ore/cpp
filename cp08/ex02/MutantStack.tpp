@@ -10,8 +10,7 @@ MutantStack<T>::MutantStack() {
 
 // Copy Constructor
 template <class T>
-MutantStack<T>::MutantStack(const MutantStack& other) {
-    *this = other;
+MutantStack<T>::MutantStack(const MutantStack& other) :std::stack<T>(other) {
 }
 
 // Copy Assignment Operator

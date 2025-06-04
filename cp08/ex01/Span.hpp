@@ -38,7 +38,13 @@ public:
 			virtual const char *what() const throw();
 	};
 
-	void	addNumberRange(std::vector<int>::iterator first, std::vector<int>::iterator last);
+	template <typename T>
+	void addNumberRange(T begin, T end) {
+		if (std::distance(begin, end) + _vector.size() > _N)
+			throw TooManyNumberException();
+		_vector.insert(_vector.end(), begin, end);
+	}	
+	
 	void	print() const;
 	// to test purpose only
 	size_t	getSize() const;
