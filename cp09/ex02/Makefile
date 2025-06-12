@@ -1,7 +1,8 @@
-NAME = mutant
+NAME = PmergeMe
 FLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SOURCES = main.cpp
+SOURCES = main.cpp \
+			PmergeMe.cpp
 
 OBJS = $(SOURCES:.cpp=.o)
 
