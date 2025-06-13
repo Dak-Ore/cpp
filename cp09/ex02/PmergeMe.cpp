@@ -21,7 +21,8 @@ PmergeMe::~PmergeMe() {}
 
 void insertionSort(std::vector<int>& vec, size_t start, size_t end)
 {
-    for (size_t i = start + 1; i < end; i++) {
+    for (size_t i = start + 1; i < end; i++)
+    {
         int key = vec[i];
         size_t j = i;
         while (j > start && vec[j - 1] > key)
@@ -46,14 +47,11 @@ void PmergeMe::sortVector(std::vector<int>& vec)
     
     std::vector<int> sortedList;
     for (size_t i = 0; i + 1 < size; i += 2)
-        sortedList.push_back(vec[i]);
-
-    if (size % 2 != 0)
-        sortedList.push_back(vec[size - 1]);
+        sortedList.push_back(vec[i + 1]);
 
     insertionSort(sortedList, 0, sortedList.size());
 
-    for (size_t i = 1; i < size; i += 2)
+    for (size_t i = 0; i < size; i += 2)
     {
         int value = vec[i];
         std::vector<int>::iterator pos = std::upper_bound(sortedList.begin(), sortedList.end(), value);
@@ -65,10 +63,12 @@ void PmergeMe::sortVector(std::vector<int>& vec)
 
 void insertionSortDeque(std::deque<int>& deq, size_t start, size_t end)
 {
-    for (size_t i = start + 1; i < end; i++) {
+    for (size_t i = start + 1; i < end; i++)
+    {
         int key = deq[i];
         size_t j = i;
-        while (j > start && deq[j - 1] > key) {
+        while (j > start && deq[j - 1] > key)
+        {
             deq[j] = deq[j - 1];
             j--;
         }
@@ -87,16 +87,13 @@ void PmergeMe::sortDeque(std::deque<int>& deq)
     }
 
     std::deque<int> sortedList;
-    for (size_t i = 0; i + 1 < size; i += 2) {
-        sortedList.push_back(deq[i]);
-    }
+    for (size_t i = 0; i + 1 < size; i += 2)
+        sortedList.push_back(deq[i + 1]);
 
-    if (size % 2 != 0)
-        sortedList.push_back(deq[size - 1]);
 
     insertionSortDeque(sortedList, 0, sortedList.size());
 
-    for (size_t i = 1; i < size; i += 2) {
+    for (size_t i = 0; i < size; i += 2) {
         int value = deq[i];
         std::deque<int>::iterator pos = std::upper_bound(sortedList.begin(), sortedList.end(), value);
         sortedList.insert(pos, value);
