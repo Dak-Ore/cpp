@@ -90,10 +90,10 @@ void PmergeMe::sortDeque(std::deque<int>& deq)
     for (size_t i = 0; i + 1 < size; i += 2)
         sortedList.push_back(deq[i + 1]);
 
-
     insertionSortDeque(sortedList, 0, sortedList.size());
 
-    for (size_t i = 0; i < size; i += 2) {
+    for (size_t i = 0; i < size; i += 2)
+    {
         int value = deq[i];
         std::deque<int>::iterator pos = std::upper_bound(sortedList.begin(), sortedList.end(), value);
         sortedList.insert(pos, value);
